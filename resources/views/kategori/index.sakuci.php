@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+<h1>kategori</h1>
+<a href="{{ route('kategori.create') }}" class="btn btn-primary mb-3">Tambah Kategori</a>
+<table class="table table-striped table-hover">
 <div class="container">
     <h1>daftar kategori</h1>
     <table class="table table-bordered table-striped">
