@@ -55,11 +55,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
     Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
-    Route::get('/kategori', [kategoriController::class,'index'])->name('kategori.index');
+    Route::get('/kategori', [KategoriController::class,'index'])->name('kategori.index');
     Route::get('/database/export', [DatabaseController::class, 'export'])->name('admin.database.export');
-    Route::get('/kategori/create', [App\Controllers\kategoriController::class,'create'])->name('kategori.create');
-    Route::post('/kategori',[App\Controllers\kategoriController::class,'store'])->name('kategori.store');
+    Route::get('/kategori/create', [App\Controllers\KategoriController::class,'create'])->name('kategori.create');
+    Route::post('/kategori',[App\Controllers\KategoriController::class,'store'])->name('kategori.store');
     Route::get('/kategori', [KategoriController::class,'index'])->name('admin.kategori.index');
+    Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
+    Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+    Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete');
 
 });
 
