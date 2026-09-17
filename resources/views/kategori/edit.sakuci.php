@@ -8,6 +8,9 @@
         @csrf
         @method('PUT')
         <div class="form-group">
+            <label>Nama Kategori</label>
+            <input type="text" class="from-kategori" id="nama_kategori" value="{{ $kategori->kategori}}" required>
+        
             <label for="keterangan">Keterangan</label>
             <input type="text" class="form-control" id="keterangan" name="keterangan" value="{{ $kategori->keterangan }}" required>
         </div>

@@ -10,7 +10,7 @@ class KategoriController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Kategori::orderBy('id_kategori', 'desc')->paginate(2);
+        $data = Kategori::orderBy('id_kategori', 'desc')->paginate(10);
        return view('kategori.index', compact('data'));
     }
     public function create(Request $request)

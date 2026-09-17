@@ -6,7 +6,7 @@ use App\Controllers\Core\DatabaseController;
 use App\Controllers\Core\DocsController;
 use App\Controllers\Core\RoleController;
 use App\Controllers\Core\UserController;
-use App\controllers\KategoriController;
+use App\Controllers\KategoriController;
 use Sakuci\Route;
 
 /*
@@ -46,7 +46,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', [DashboardController::class, 'admin'])->name('admin.dashboard');
 
-    Route::get('/kategori', [KategoriController::class, 'index'])->name('admin.kategori.index');
 
     Route::get('/roles', [RoleController::class, 'index'])->name('admin.roles.index');
     Route::post('/roles', [RoleController::class, 'store'])->name('admin.roles.store');
@@ -55,11 +54,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
     Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
-    Route::get('/kategori', [KategoriController::class,'index'])->name('kategori.index');
     Route::get('/database/export', [DatabaseController::class, 'export'])->name('admin.database.export');
     Route::get('/kategori/create', [App\Controllers\KategoriController::class,'create'])->name('kategori.create');
     Route::post('/kategori',[App\Controllers\KategoriController::class,'store'])->name('kategori.store');
-    Route::get('/kategori', [KategoriController::class,'index'])->name('admin.kategori.index');
+    Route::get('/kategori', [KategoriController::class,'index'])->name('kategori.index');
     Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
     Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
     Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete');
