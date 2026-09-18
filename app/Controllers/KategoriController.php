@@ -10,7 +10,7 @@ class KategoriController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Kategori::orderBy('id_kategori', 'desc')->paginate(10);
+        $data = Kategori::orderBy('id_kategori', 'desc')->paginate(4);
        return view('kategori.index', compact('data'));
     }
     public function create(Request $request)
@@ -28,28 +28,23 @@ class KategoriController extends Controller
         return redirect(route('kategori.index'))->with('success', 'Kategori berhasil ditambahkan.');
     }
 
-    public function edit(Request $request, $id)
+   public function edit(Request $request, $id_kategori)
+{
+    $data = Kategori::findOrFail($id_kategori);
+    return view('kategori.edit', compact('data'));
+}
+
+    public function update (Request $request, $id_kategori)
     {
-        $kategori = Kategori::findOrFail($id);
-        return view('kategori.edit', compact('kategori'));
+        $data = $request->all();
+
+        $kategori = kategori::FindOrfail($id_kategori);
+        $kategori->update($data);
+        return redirect(route('kategori.index'))->with('success', 'kategori berhasil diubah');
     }
-
-    public function update(Request $request, $id)
+   public function delete(Request $request, $id_kategori)
     {
-        $request->validate([
-            'keterangan' => 'required|string|max:255',
-        ]);
-
-        $kategori = Kategori::findOrFail($id);
-        $kategori->keterangan = $request->input('keterangan');
-        $kategori->save();
-
-        return redirect()->route('kategori.index')->with('success', 'Kategori berhasil diperbarui.');
-    }
-
-    public function destroy(Request $request, $id)
-    {
-        $kategori = Kategori::findOrFail($id);
+        $kategori = Kategori::findOrFail($id_kategori);
         $kategori->delete();
 
         return redirect()->route('kategori.index')->with('success', 'Kategori berhasil dihapus.');

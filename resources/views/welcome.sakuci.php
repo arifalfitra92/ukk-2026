@@ -14,8 +14,8 @@
         </h1>
 
         <p class="lead text-secondary mx-auto mb-4" style="max-width: 620px;">
-            Route, Model, View, dan Controller dalam satu paket ringan.
-            Cukup PHP OOP murni -- salin foldernya, jalankan, selesai.
+           Web Peminjaman Alat Camping memudahkan customer untuk menyewa/mencari
+           peralatan untuk mendaki gunung gunung yang indah.
         </p>
 
         <div class="d-flex flex-wrap gap-2 justify-content-center">
@@ -24,8 +24,8 @@
         </div>
 
         <p class="text-secondary small mt-3 mb-0">
-            Panduan langkah demi langkah ada di berkas
-            <code class="inline">TUTORIAL.md</code>
+            Pesan dan cari barang untuk mendukung pendakian kalian.
+            <code class="inline"></code>
         </p>
     </section>
 
