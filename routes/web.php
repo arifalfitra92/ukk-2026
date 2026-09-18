@@ -102,4 +102,6 @@ Route::group(['prefix' => 'siswa', 'middleware' => 'siswa'], function () {
 |
 | // Group dengan prefix dan middleware bersama
 | Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-|     Route::get('/dashboard'
+|     Route::get('/dashboard', [DashboardController::class, 'index']);
+| });
+*/
